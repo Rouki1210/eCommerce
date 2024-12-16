@@ -42,20 +42,20 @@ namespace eCommerce.Repositories
 
         public async Task<Order> UpdateOrder(Order order)
         {
-            var newOrder = await _context.Orders.FirstOrDefaultAsync(o => o.Id==order.Id);
+            var updateOrder = await _context.Orders.FirstOrDefaultAsync(o => o.Id==order.Id);
 
-            if (newOrder != null) 
+            if (updateOrder != null) 
             {
-                newOrder.CustomerName = order.CustomerName;
-                newOrder.ProductName = order.ProductName;
-                newOrder.Price = order.Price;
-                newOrder.Quantity = order.Quantity;
-                newOrder.OrderDate = order.OrderDate;
+                updateOrder.CustomerName = order.CustomerName;
+                updateOrder.ProductName = order.ProductName;
+                updateOrder.Price = order.Price;
+                updateOrder.Quantity = order.Quantity;
+                updateOrder.OrderDate = order.OrderDate;
 
                 await _context.SaveChangesAsync();
             }
 
-            return newOrder;
+            return updateOrder;
         }
 
 
