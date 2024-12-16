@@ -34,8 +34,8 @@ namespace eCommerce.Services
 
         public async Task<Order> UpdateOrder(Order order)
         {
-            var newOrder = await _orderReponsitory.UpdateOrder(order);
-            return newOrder;
+            var updateOrder = await _orderReponsitory.UpdateOrder(order);
+            return updateOrder;
         }
 
         public async Task DeleteOrder(int id)
