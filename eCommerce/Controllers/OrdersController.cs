@@ -47,6 +47,15 @@ namespace eCommerce.Controllers
 
             return order;
         }
+
+        [HttpGet("oder/{customerName}")]
+        public async Task<Order> GetOrderByName(string customerName)
+        {
+            var order = await _orderService.GetOrderByCustomer(customerName);
+
+            return order;
+        }
+
         [HttpPost]
         public async Task<Order> AddOrder(Order order)
         {

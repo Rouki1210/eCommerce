@@ -7,6 +7,8 @@ namespace eCommerce.Repositories
         Task<List<Order>> GetOrder();
         Task<Order> GetOrderById(int id);
 
+        Task<Order> GetOrderByCustom(string CustomerName);
+
         Task<Order> AddOrder(Order order); 
 
         Task<Order> UpdateOrder(Order order);

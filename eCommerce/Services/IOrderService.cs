@@ -8,6 +8,8 @@ namespace eCommerce.Services
 
         Task<Order> GetOrderById(int id);
 
+        Task<Order> GetOrderByCustomer(string CustomerName);
+
         Task<Order> AddOrder(Order order);
 
         Task<Order> UpdateOrder(Order order);

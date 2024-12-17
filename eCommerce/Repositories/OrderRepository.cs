@@ -32,6 +32,11 @@ namespace eCommerce.Repositories
             return order;
         }
 
+        public async Task<Order> GetOrderByCustom(string CustomerName)
+        {
+            var order = _context.Orders.FirstOrDefault(o => o.CustomerName == CustomerName);
+            return order;
+        }
         public async Task<Order> AddOrder(Order order)
         {
             await _context.Orders.AddAsync(order);

@@ -1,5 +1,6 @@
 ﻿using eCommerce.Models;
 using eCommerce.Repositories;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace eCommerce.Services
 {
@@ -26,6 +27,15 @@ namespace eCommerce.Services
             return await _orderReponsitory.GetOrderById(id);
         }
 
+        public async Task<Order> GetOrderByCustomer(string CustomerName)
+        {
+            if (CustomerName == null)
+            {
+                throw new ArgumentException("Not found this customer");
+            }
+
+            return await _orderReponsitory.GetOrderByCustom(CustomerName);
+        }
         public async Task<Order> AddOrder(Order order)
         {
             var newOrder = await _orderReponsitory.AddOrder(order);
